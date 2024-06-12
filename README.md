@@ -52,29 +52,29 @@ The primary objective of this project is to demonstrate proficiency in building 
     Open your web browser and navigate to http://localhost:3000.
 
 ## Project Structure
-/my-app
-├── .next
-├── node_modules
-├── public
-├── src
-│   ├── app
-│   │   ├── global.css
-│   │   ├── layout.tsx
-│   │   ├── page.js
-│   ├── components
-│   │   ├── PokemonCard.js
-│   │   ├── PokemonDetails.js
-│   │   ├── SearchBar.js
-│   │   ├── Pagination.js
-│   │   └── CaughtPokemonList.js
-│   ├── hooks
-│   │   └── usePokemonStore.js
-│   ├── services
-│   │   └── fetchHandler.js
-│   ├── styles
-│   │   └── index.css
-│   ├── package.json
-│   └── package-lock.json
+    /my-app
+    ├── .next
+    ├── node_modules
+    ├── public
+    ├── src
+    │   ├── app
+    │   │   ├── global.css
+    │   │   ├── layout.tsx
+    │   │   ├── page.js
+    │   ├── components
+    │   │   ├── PokemonCard.js
+    │   │   ├── PokemonDetails.js
+    │   │   ├── SearchBar.js
+    │   │   ├── Pagination.js
+    │   │   └── CaughtPokemonList.js
+    │   ├── hooks
+    │   │   └── usePokemonStore.js
+    │   ├── services
+    │   │   └── fetchHandler.js
+    │   ├── styles
+    │   │   └── index.css
+    │   ├── package.json
+    │   └── package-lock.json
 
 ## Components
 
