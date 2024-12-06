@@ -13,7 +13,7 @@ const SearchBar = ({ onSearch }) => {
 
   return (
     <div className="search-bar-container">
-      <h1>Drac's Pokedex</h1>
+      <h1>Drac&#39;s Pokedex</h1>
       <Input
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}

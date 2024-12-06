@@ -34,7 +34,7 @@ const CaughtPokemonList = () => {
         <Alert>
           <AlertTitle>Attention!</AlertTitle>
           <AlertDescription>
-            You haven't caught any Pokémon yet. Catch some Pokémon to view them here.
+            You haven&#39;t caught any Pokémon yet. Catch some Pokémon to view them here.
           </AlertDescription>
           <button onClick={handleCloseAlert}>Close Alert</button>
         </Alert>
