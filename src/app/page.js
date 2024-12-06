@@ -15,10 +15,6 @@ const HomePage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchedPokemon, setSearchedPokemon] = useState(null);
 
-  useEffect(() => {
-    fetchPokemonList();
-  }, [currentPage, searchedPokemon]);
-
   const fetchPokemonList = async () => {
     try {
       if (searchedPokemon) {
@@ -47,6 +43,10 @@ const HomePage = () => {
       console.error('Error fetching Pokémon:', error);
     }
   };
+
+  useEffect(() => {
+    fetchPokemonList();
+  }, [currentPage, searchedPokemon]);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -77,5 +77,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
-// yoo
