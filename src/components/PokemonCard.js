@@ -79,19 +79,24 @@ const PokemonCard = ({ pokemon }) => {
 
   const abilities = pokemon.abilities.map((abilityInfo) => abilityInfo.ability.name).join(', ');
   const types = pokemon.types.map((typeInfo) => typeInfo.type.name).join(', ');
+  
+  // Check if name is long (more than 9 characters)
+  const isLongName = pokemon.name.length > 9;
 
   return (
     <div className="pokemon-card">
       <div className="card-header">
-        <h3 className="card-title">
-          {pokemon.name}
-          <span style={{
-            fontSize: '0.7rem',
-            marginLeft: '0.5rem',
-            color: rarityInfo.color,
-            textShadow: `0 0 10px ${rarityInfo.color}`
-          }}>
-            {rarityInfo.emoji}
+        <h3 className={`card-title ${isLongName ? 'long-name' : ''}`}>
+          <span className="card-title-text">
+            {pokemon.name}
+            <span style={{
+              fontSize: '0.7rem',
+              marginLeft: '0.5rem',
+              color: rarityInfo.color,
+              textShadow: `0 0 10px ${rarityInfo.color}`
+            }}>
+              {rarityInfo.emoji}
+            </span>
           </span>
         </h3>
         <div style={{ 

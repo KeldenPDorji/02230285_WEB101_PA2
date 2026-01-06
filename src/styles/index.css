@@ -224,6 +224,35 @@ body::before {
   min-width: 0;
   white-space: nowrap;
   padding-right: 0.5rem;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Wrapper for the scrolling text */
+.card-title-text {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+/* Animation for long names (9+ characters) */
+.card-title.long-name .card-title-text {
+  animation: none;
+}
+
+.pokemon-card:hover .card-title.long-name .card-title-text {
+  animation: scrollName 3s linear infinite;
+}
+
+@keyframes scrollName {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(calc(-100% + 200px));
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .catch-button {
@@ -472,6 +501,18 @@ body::before {
     font-size: 1.2rem;
   }
 
+  @keyframes scrollName {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(calc(-100% + 150px));
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
   .pagination {
     gap: 0.5rem;
   }
@@ -502,6 +543,18 @@ body::before {
   
   .card-title {
     font-size: 1.1rem;
+  }
+
+  @keyframes scrollName {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(calc(-100% + 120px));
+    }
+    100% {
+      transform: translateX(0);
+    }
   }
 
   .pagination-number {
