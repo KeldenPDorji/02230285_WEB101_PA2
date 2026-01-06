@@ -9,9 +9,12 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "🔥 DRAC'S POKEDEX | Cyberpunk Edition",
+  title: "DRAC'S POKEDEX",
   description: "A stunning, interactive Pokédex with advanced search, detailed stats visualization, and a captivating dark gaming aesthetic.",
   keywords: ["Pokemon", "Pokedex", "Next.js", "React", "Cyberpunk"],
+  icons: {
+    icon: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png',
+  },
 };
 
 const RootLayout = ({

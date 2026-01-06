@@ -3,9 +3,11 @@
 import React, { useState } from 'react';
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { useRouter } from 'next/navigation';
 
 const SearchBar = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
+  const router = useRouter();
 
   const handleSearch = () => {
     onSearch(searchTerm);
@@ -17,9 +19,20 @@ const SearchBar = ({ onSearch }) => {
     }
   };
 
+  const handleHomeClick = () => {
+    router.push('/');
+    window.location.reload(); // Reload to reset to page 1
+  };
+
   return (
     <div className="search-bar-container">
-      <h1>🔥 DRAC'S POKEDEX</h1>
+      <h1 
+        onClick={handleHomeClick}
+        style={{ cursor: 'pointer' }}
+        title="Go to Home"
+      >
+        🔥 DRAC'S POKEDEX
+      </h1>
       <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', width: '100%', maxWidth: '600px' }}>
         <Input
           value={searchTerm}

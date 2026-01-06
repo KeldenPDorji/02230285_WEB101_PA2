@@ -1,18 +1,9 @@
 "use client";
 
 import React from 'react';
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/components/ui/pagination";
 
 const PaginationComponent = ({ totalPages, currentPage, onPageChange }) => {
-  const maxPagesToShow = 5; // Number of page numbers to display at a time
+  const maxPagesToShow = 5;
   const pages = [];
 
   let startPage, endPage;
@@ -33,33 +24,75 @@ const PaginationComponent = ({ totalPages, currentPage, onPageChange }) => {
     pages.push(i);
   }
 
+  const handlePageClick = (page) => {
+    if (page >= 1 && page <= totalPages) {
+      onPageChange(page);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   return (
-    <Pagination>
-      <PaginationContent>
-        <PaginationItem>
-          <PaginationPrevious href="#" onClick={() => onPageChange(currentPage - 1)} disabled={currentPage === 1} />
-        </PaginationItem>
-        {pages.map((page) => (
-          <PaginationItem key={page}>
-            <PaginationLink 
-              href="#" 
-              onClick={() => onPageChange(page)} 
-              className={page === currentPage ? 'active' : ''}
-            >
-              {page}
-            </PaginationLink>
-          </PaginationItem>
-        ))}
-        {totalPages > maxPagesToShow && endPage < totalPages && (
-          <PaginationItem>
-            <PaginationEllipsis />
-          </PaginationItem>
-        )}
-        <PaginationItem>
-          <PaginationNext href="#" onClick={() => onPageChange(currentPage + 1)} disabled={currentPage === totalPages} />
-        </PaginationItem>
-      </PaginationContent>
-    </Pagination>
+    <div className="pagination">
+      {/* Previous Button */}
+      <button 
+        onClick={() => handlePageClick(currentPage - 1)} 
+        disabled={currentPage === 1}
+        className="pagination-nav"
+      >
+        ← Previous
+      </button>
+
+      {/* First Page */}
+      {startPage > 1 && (
+        <>
+          <button 
+            onClick={() => handlePageClick(1)} 
+            className="pagination-number"
+          >
+            1
+          </button>
+          {startPage > 2 && <span className="pagination-ellipsis">...</span>}
+        </>
+      )}
+
+      {/* Page Numbers */}
+      {pages.map((page) => (
+        <button
+          key={page}
+          onClick={() => handlePageClick(page)}
+          className={`pagination-number ${page === currentPage ? 'active' : ''}`}
+        >
+          {page}
+        </button>
+      ))}
+
+      {/* Last Page */}
+      {endPage < totalPages && (
+        <>
+          {endPage < totalPages - 1 && <span className="pagination-ellipsis">...</span>}
+          <button 
+            onClick={() => handlePageClick(totalPages)} 
+            className="pagination-number"
+          >
+            {totalPages}
+          </button>
+        </>
+      )}
+
+      {/* Next Button */}
+      <button 
+        onClick={() => handlePageClick(currentPage + 1)} 
+        disabled={currentPage === totalPages}
+        className="pagination-nav"
+      >
+        Next →
+      </button>
+
+      {/* Page Info */}
+      <div className="pagination-info">
+        Page <span className="current-page-highlight">{currentPage}</span> of {totalPages}
+      </div>
+    </div>
   );
 };
 
