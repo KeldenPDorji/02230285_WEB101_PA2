@@ -3,14 +3,15 @@
 import React from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { Toaster } from "@/components/ui/toaster"; // Import Toaster component
+import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Drac's Project",
-  description: "God's Plan.",
+  title: "🔥 DRAC'S POKEDEX | Cyberpunk Edition",
+  description: "A stunning, interactive Pokédex with advanced search, detailed stats visualization, and a captivating dark gaming aesthetic.",
+  keywords: ["Pokemon", "Pokedex", "Next.js", "React", "Cyberpunk"],
 };
 
 const RootLayout = ({
@@ -21,11 +22,16 @@ const RootLayout = ({
   return (
     <html lang="en">
       <head>
-        {/* Add any head elements here */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link 
+          href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" 
+          rel="stylesheet" 
+        />
       </head>
       <body className={inter.className}>
         {children}
-        <Toaster /> {/* Add the Toaster component here */}
+        <Toaster />
       </body>
     </html>
   );

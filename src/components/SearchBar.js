@@ -11,30 +11,25 @@ const SearchBar = ({ onSearch }) => {
     onSearch(searchTerm);
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  };
+
   return (
     <div className="search-bar-container">
-      <h1>Drac&#39;s Pokedex</h1>
-      <Input
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        placeholder="Search Pokémon"
-        className="search-input"
-      />
-      <Button onClick={handleSearch} className="search-button">Search</Button>
-      <style jsx>{`
-        .search-bar-container {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-        }
-        .search-input {
-          flex: 1;
-        }
-        .search-button {
-          background-color: #4CAF50;
-          color: white;
-        }
-      `}</style>
+      <h1>🔥 DRAC'S POKEDEX</h1>
+      <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', width: '100%', maxWidth: '600px' }}>
+        <Input
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          onKeyPress={handleKeyPress}
+          placeholder="Search Pokémon by name or number..."
+          className="search-input"
+        />
+        <Button onClick={handleSearch} className="search-button">Search</Button>
+      </div>
     </div>
   );
 };
