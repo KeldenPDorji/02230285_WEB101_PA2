@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import SearchBar from '../components/SearchBar';
 import PokemonCard from '../components/PokemonCard';
 import PaginationComponent from '../components/Pagination';
@@ -20,8 +20,9 @@ const HomePage = () => {
   
   // Cache for storing fetched Pokémon data
   const pokemonCache = useRef({});
+  const abortControllerRef = useRef(null);
 
-  const fetchPokemonList = async () => {
+  const fetchPokemonList = useCallback(async () => {
     try {
       setIsLoading(true);
       setError(null);
@@ -86,17 +87,11 @@ const HomePage = () => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [currentPage, searchedPokemon]);
 
   useEffect(() => {
     fetchPokemonList();
-  }, [currentPage]);
-
-  useEffect(() => {
-    if (searchedPokemon !== null) {
-      fetchPokemonList();
-    }
-  }, [searchedPokemon]);
+  }, [fetchPokemonList]);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
