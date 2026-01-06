@@ -102,25 +102,29 @@ const PokemonCard = ({ pokemon }) => {
         <div style={{ 
           position: 'relative',
           flexShrink: 0,
-          width: isCaught ? '40px' : '60px',
-          height: isCaught ? '40px' : '60px'
+          width: isCaught ? '60px' : '60px',
+          height: isCaught ? '60px' : '60px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
         }}>
           <img 
             src={isCaught 
-              ? "https://www.pinclipart.com/picdir/big/548-5488263_pokeball-pokemon-ball-png-images-free-download-pokemon.png" 
+              ? "https://i.giphy.com/Sd9XrDFZZ0Q0OXAdJM.webp" 
               : pokeball.image
             } 
             alt={isCaught ? "Caught" : pokeball.name} 
             onClick={handleCatch}
-            className={`catch-button ${isShaking ? 'shake' : ''}`}
+            className={isCaught ? '' : `catch-button ${isShaking ? 'shake' : ''}`}
             style={{
               opacity: isCatching ? 0.6 : 1,
               cursor: isCatching ? 'wait' : 'pointer',
               filter: isCaught 
                 ? 'drop-shadow(0 0 8px rgba(255, 0, 255, 0.6))' 
                 : `drop-shadow(0 0 8px ${pokeball.color})`,
-              width: '100%',
-              height: '100%'
+              width: isCaught ? '60px' : '100%',
+              height: isCaught ? '60px' : '100%',
+              objectFit: 'contain'
             }}
             title={isCaught ? 'Already Caught!' : `Use ${pokeball.name} (${rarityInfo.label})`}
           />

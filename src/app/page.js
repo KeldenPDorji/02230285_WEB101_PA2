@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import SearchBar from '../components/SearchBar';
 import PokemonCard from '../components/PokemonCard';
 import PaginationComponent from '../components/Pagination';
@@ -17,6 +17,9 @@ const HomePage = () => {
   const [searchedPokemon, setSearchedPokemon] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  
+  // Cache for storing fetched Pokémon data
+  const pokemonCache = useRef({});
 
   const fetchPokemonList = async () => {
     try {
@@ -24,26 +27,57 @@ const HomePage = () => {
       setError(null);
       
       if (searchedPokemon) {
+        // Check cache first
+        if (pokemonCache.current[searchedPokemon]) {
+          setPokemonList([pokemonCache.current[searchedPokemon]]);
+          setIsLoading(false);
+          return;
+        }
+        
         const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${searchedPokemon}`);
         if (!data.ok) {
           throw new Error('Pokémon not found!');
         }
         const pokemonData = await data.json();
+        pokemonCache.current[searchedPokemon] = pokemonData;
         setPokemonList([pokemonData]);
       } else {
         const offset = (currentPage - 1) * PAGE_SIZE;
+        
+        // Check if this page is cached
+        const cacheKey = `page_${currentPage}`;
+        if (pokemonCache.current[cacheKey]) {
+          setPokemonList(pokemonCache.current[cacheKey]);
+          setIsLoading(false);
+          return;
+        }
+        
         const data = await fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${PAGE_SIZE}`);
         if (!data.ok) {
           throw new Error('Failed to fetch Pokémon list');
         }
         const pokemonData = await data.json();
+        
+        // Fetch all Pokémon details in parallel with optimized error handling
         const detailedPokemonData = await Promise.all(
           pokemonData.results.map(async (pokemon) => {
-            const pokemonDetails = await fetch(pokemon.url);
-            return pokemonDetails.json();
+            try {
+              const pokemonDetails = await fetch(pokemon.url);
+              if (!pokemonDetails.ok) throw new Error('Failed to fetch details');
+              return pokemonDetails.json();
+            } catch (err) {
+              console.error(`Error fetching ${pokemon.name}:`, err);
+              return null;
+            }
           })
         );
-        setPokemonList(detailedPokemonData);
+        
+        // Filter out any failed fetches
+        const validPokemon = detailedPokemonData.filter(p => p !== null);
+        
+        // Cache the page data
+        pokemonCache.current[cacheKey] = validPokemon;
+        setPokemonList(validPokemon);
       }
     } catch (error) {
       console.error('Error fetching Pokémon:', error);
@@ -56,7 +90,13 @@ const HomePage = () => {
 
   useEffect(() => {
     fetchPokemonList();
-  }, [currentPage, searchedPokemon]);
+  }, [currentPage]);
+
+  useEffect(() => {
+    if (searchedPokemon !== null) {
+      fetchPokemonList();
+    }
+  }, [searchedPokemon]);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -103,7 +143,7 @@ const HomePage = () => {
         </div>
       ) : (
         <>
-          <div className="pokemon-grid">
+          <div className={`pokemon-grid ${searchedPokemon ? 'search-result' : ''}`}>
             {pokemonList.map((pokemon) => (
               <PokemonCard key={pokemon.id} pokemon={pokemon} />
             ))}
