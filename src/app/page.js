@@ -6,7 +6,6 @@ import PokemonCard from '../components/PokemonCard';
 import PaginationComponent from '../components/Pagination';
 import CaughtPokemonList from '../components/CaughtPokemonList';
 import LoadingSpinner from '../components/LoadingSpinner';
-import { fetchPokemon } from '../services/fetchHandler';
 import '../styles/index.css';
 
 const PAGE_SIZE = 20;
