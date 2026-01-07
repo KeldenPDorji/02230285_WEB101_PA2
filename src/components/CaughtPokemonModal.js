@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import usePokemonStore from '../hooks/usePokemonStore';
 import {
   Pagination,
@@ -154,7 +155,7 @@ const CaughtPokemonModal = ({ isOpen, onClose }) => {
                 e.currentTarget.style.borderColor = 'rgba(138, 43, 226, 0.3)';
               }}
             >
-              <img
+              <Image
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`}
                 alt={pokemon.name}
                 style={{
@@ -162,6 +163,9 @@ const CaughtPokemonModal = ({ isOpen, onClose }) => {
                   height: '100px',
                   filter: 'drop-shadow(0 0 15px rgba(138, 43, 226, 0.4))'
                 }}
+                width={100}
+                height={100}
+                unoptimized
               />
               <span style={{
                 color: '#e0e0e0',

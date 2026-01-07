@@ -31,7 +31,7 @@ const SearchBar = ({ onSearch }) => {
         style={{ cursor: 'pointer' }}
         title="Go to Home"
       >
-        🔥 DRAC'S POKEDEX
+        🔥 DRAC&apos;S POKEDEX
       </h1>
       <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', width: '100%', maxWidth: '600px' }}>
         <Input

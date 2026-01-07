@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 import usePokemonStore from '../hooks/usePokemonStore';
 import { Progress } from "@/components/ui/progress";
 import { useToast } from "@/components/ui/use-toast";
@@ -108,7 +109,7 @@ const PokemonCard = ({ pokemon }) => {
           alignItems: 'center',
           justifyContent: 'center'
         }}>
-          <img 
+          <Image 
             src={isCaught 
               ? "https://i.giphy.com/Sd9XrDFZZ0Q0OXAdJM.webp" 
               : pokeball.image
@@ -127,6 +128,9 @@ const PokemonCard = ({ pokemon }) => {
               objectFit: 'contain'
             }}
             title={isCaught ? 'Already Caught!' : `Use ${pokeball.name} (${rarityInfo.label})`}
+            width={60}
+            height={60}
+            unoptimized
           />
           {!isCaught && attempts > 0 && (
             <span style={{
@@ -151,10 +155,13 @@ const PokemonCard = ({ pokemon }) => {
           )}
         </div>
       </div>
-      <img 
+      <Image 
         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`} 
         alt={pokemon.name}
         className={`pokemon-image ${isShaking ? 'shake' : ''}`}
+        width={96}
+        height={96}
+        unoptimized
       />
       <div className="card-content">
         <div style={{
