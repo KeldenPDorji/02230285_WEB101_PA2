@@ -312,23 +312,6 @@ This project demonstrates proficiency in:
 
 ---
 
-## 🔮 Future Enhancements
-
-- [ ] Favorites system with local storage persistence
-- [ ] Advanced filtering (by type, generation, stats, rarity)
-- [ ] Pokémon comparison tool (side-by-side stats)
-- [ ] Evolution chain visualization with graphics
-- [ ] Move details with type effectiveness
-- [ ] Ability descriptions and effects
-- [ ] Dark/Light theme toggle
-- [ ] Sound effects for catch attempts
-- [ ] Battle simulator with type matchups
-- [ ] Team builder (limit 6 Pokémon)
-- [ ] Export/Import caught Pokémon data
-- [ ] Achievement system (catch milestones)
-
----
-
 ## 📝 Code Quality
 
 - **Modularity**: Separated concerns - components, hooks, utils, services
@@ -337,18 +320,6 @@ This project demonstrates proficiency in:
 - **Scalability**: Easy to extend with new features and components
 - **Performance**: Optimized with caching, memoization, and efficient rendering
 - **Accessibility**: Semantic HTML, ARIA labels, keyboard navigation
-
----
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome!
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
 ---
 
@@ -374,68 +345,3 @@ Contributions, issues, and feature requests are welcome!
 
 </div>
 
-    Open your web browser and navigate to http://localhost:3000.
-
-## Project Structure
-    /my-app
-    ├── .next
-    ├── node_modules
-    ├── public
-    ├── src
-    │   ├── app
-    │   │   ├── global.css
-    │   │   ├── layout.tsx
-    │   │   ├── page.js
-    │   ├── components
-    │   │   ├── PokemonCard.js
-    │   │   ├── PokemonDetails.js
-    │   │   ├── SearchBar.js
-    │   │   ├── Pagination.js
-    │   │   └── CaughtPokemonList.js
-    │   ├── hooks
-    │   │   └── usePokemonStore.js
-    │   ├── services
-    │   │   └── fetchHandler.js
-    │   ├── styles
-    │   │   └── index.css
-    │   ├── package.json
-    │   └── package-lock.json
-
-## Components
-
-SearchBar: Component for searching Pokemon.
-PokemonCard: Component for displaying basic Pokemon information.
-PokemonDetails: Component for displaying detailed Pokemon information.
-Pagination: Component for handling pagination of search results.
-CaughtPokemonList: Component for displaying the list of caught Pokemon.
-
-## Hooks
-
-usePokemonStore: Zustand store for managing the state of caught Pokemon.
-
-## Services
-
-fetchHandler: Service for handling API calls to fetch Pokemon data.
-
-## Contributing
-
-Contributions are welcome! Please follow these steps to contribute:
-
-Fork the repository.
-Create a new branch (git checkout -b feature-branch).
-Make your changes.
-Commit your changes (git commit -m 'Add new feature').
-Push to the branch (git push origin feature-branch).
-Create a Pull Request.
-
-## Searching for a Pokemon
-
-Enter a Pokemon name in the search bar and click the "Search" button.
-
-## Catching a Pokemon
-
-Click on the Pokeball icon next to the Pokemon's name in the card.
-
-## Viewing Caught Pokemon
-
-Click the "View Caught Pokémon" button to see the list of Pokemon you have caught.
