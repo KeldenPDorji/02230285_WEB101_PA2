@@ -18,7 +18,7 @@
 
 ## 📸 Preview
 
-![Pokedex Preview](https://img.lemde.fr/2022/12/22/5/0/1730/865/1440/720/60/0/e968e4d_1671703423578-b5e.jpeg)
+![Pokedex Preview](preview.png)
 
 Experience a modern, cyberpunk-inspired Pokédex with smooth animations, game-like catch mechanics with realistic Pokéball animations, and an immersive dark theme that brings the world of Pokémon to life.
 
