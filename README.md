@@ -1,4 +1,4 @@
-# 🔥 DRAC'S POKEDEX - PA2
+# 🔥 DRAC'S POKEDEX - V2
 
 <div align="center">
 
