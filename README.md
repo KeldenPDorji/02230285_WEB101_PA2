@@ -10,7 +10,7 @@
 
 **A stunning, interactive Pokédex built with Next.js featuring cyberpunk-inspired dark gaming aesthetics, game-like catch mechanics, advanced search capabilities, and real-time state management.**
 
-[Live Demo](https://zero2230285-web101-pa2.onrender.com/) • [Features](#-features) • [Tech Stack](#%EF%B8%8F-tech-stack) • [Installation](#-installation)
+[Live Demo](https://interactive-pokedex-v2.onrender.com/) • [Features](#-features) • [Tech Stack](#%EF%B8%8F-tech-stack) • [Installation](#-installation)
 
 </div>
 
@@ -351,7 +351,7 @@ This project demonstrates proficiency in:
 
 *If you found this project interesting, please give it a ⭐!*
 
-[🔗 Live Demo](https://zero2230285-web101-pa2.onrender.com/) | [🐛 Report Bug](https://github.com/KeldenPDorji/02230285_WEB101_PA2/issues) | [✨ Request Feature](https://github.com/KeldenPDorji/02230285_WEB101_PA2/issues)
+[🔗 Live Demo](https://interactive-pokedex-v2.onrender.com/) | [🐛 Report Bug](https://github.com/KeldenPDorji/02230285_WEB101_PA2/issues) | [✨ Request Feature](https://github.com/KeldenPDorji/02230285_WEB101_PA2/issues)
 
 </div>
 
