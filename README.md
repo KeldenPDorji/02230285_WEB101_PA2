@@ -133,10 +133,20 @@ Experience a modern, cyberpunk-inspired Pokédex with smooth animations, game-li
 - `npm start` - Run production server (after build)
 - `npm run lint` - Run ESLint to check code quality
 
-### Deployment (Render)
+### Deployment Options
+
+#### Option 1: Static Site (Current Configuration)
+For **Render Static Sites** or other static hosting:
 - **Build Command**: `npm install && npm run build`
-- **Start Command**: `npm start`
-- **Environment**: Node 18+
+- **Publish Directory**: `out`
+- Note: Next.js will export static HTML files
+
+#### Option 2: Web Service (Recommended for Full Features)
+For **Render Web Service** with Node.js server:
+1. Change `next.config.mjs` to remove `output: 'export'`
+2. Set **Build Command**: `npm install && npm run build`
+3. Set **Start Command**: `npm start`
+4. Enables server-side features and better performance
 
 ---
 

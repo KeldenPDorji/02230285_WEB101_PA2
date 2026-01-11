@@ -1,18 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'raw.githubusercontent.com',
-        pathname: '/PokeAPI/sprites/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'i.giphy.com',
-      },
-    ],
+    unoptimized: true,
   },
+  trailingSlash: true,
 };
 
 export default nextConfig;
